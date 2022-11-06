@@ -24,7 +24,7 @@
     "react-scripts": "^5.0.0",
     "react-toastify": "^8.1.0",
     "react-tooltip": "^4.2.21",
-    "scheduler": "^0.20.2",
+    "scheduler": "^0.23.0",
     "sleep": "^6.3.0",
     "ua-parser-js": "^1.0.2",
     "web-serial-polyfill": "stylesuxx/web-serial-polyfill#temporary-fix",
