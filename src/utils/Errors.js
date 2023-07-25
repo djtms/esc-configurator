@@ -40,11 +40,11 @@ class UnknownInterfaceError extends Error {
   }
 }
 
-class UnknownMcuError extends Error {
+class UnknownSignatureError extends Error {
   constructor(signature) {
-    super(`unknown mcu: ${signature}`);
+    super(`unknown signature: ${signature}`);
     this.signature = signature;
-    this.name = 'UnknownMcuError';
+    this.name = 'UnknownSignatureError';
   }
 }
 
@@ -91,17 +91,33 @@ class MissingParametersError extends Error {
   }
 }
 
+class MessageNotOkError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'MessageNotOkError';
+  }
+}
+
+class LayoutMismatchError extends Error {
+  constructor(expected, received) {
+    super(`Expected layout: '${expected}', got: '${received}'`);
+    this.name = 'LayoutMismatchError';
+  }
+}
+
 export {
   BufferLengthMismatchError,
   ConversionError,
   EscInitError,
   EscLockedError,
   InvalidHexFileError,
+  LayoutMismatchError,
   MethodNotImplementedError,
   MissingParametersError,
   SettingsVerificationError,
   TooManyParametersError,
   UnknownInterfaceError,
-  UnknownMcuError,
+  UnknownSignatureError,
   UnknownPlatformError,
+  MessageNotOkError,
 };

@@ -1,6 +1,13 @@
 import { ConversionError } from '../Errors';
 
 class Convert {
+  /**
+   * Convert array to matching layout object
+   *
+   * @param {Uint8Array} settingsUint8Array
+   * @param {object} layout
+   * @returns {object}
+   */
   static arrayToSettingsObject(settingsUint8Array, layout) {
     const object = {};
 
@@ -17,6 +24,7 @@ class Convert {
       } else if (size > 2) {
         if(prop === 'STARTUP_MELODY') {
           object[prop] = settingsUint8Array.subarray(offset, offset + size);
+          object[prop] = Array.from(object[prop]);
         } else {
           object[prop] = String.fromCharCode.apply(undefined, settingsUint8Array.subarray(offset, offset + size)).trim();
         }
@@ -28,6 +36,14 @@ class Convert {
     return object;
   }
 
+  /**
+   * Convert a setting object to a matching settings array
+   *
+   * @param {object} settingsObject
+   * @param {object} layout
+   * @param {number} layoutSize
+   * @returns {Uint8Array}
+   */
   static objectToSettingsArray(settingsObject, layout, layoutSize) {
     const array = new Uint8Array(layoutSize).fill(0xff);
 
@@ -59,10 +75,22 @@ class Convert {
     return array;
   }
 
+  /**
+   * Convert a buffer to ASCII
+   *
+   * @param {Uint8Array} buffer
+   * @returns {string}
+   */
   static bufferToAscii(buffer) {
     return String.fromCharCode.apply(null, buffer);
   }
 
+  /**
+   * Convert an ASCII string to buffer
+   *
+   * @param {string} ascii
+   * @returns {Uint8Array}
+   */
   static asciiToBuffer(ascii) {
     const buffer = new Uint8Array(ascii.length);
 

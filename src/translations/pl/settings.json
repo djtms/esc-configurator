@@ -12,5 +12,7 @@
   "enableAdvanced": "Włącz zaawansowane ustawienia",
   "enableAdvancedHint": "Dodaje zaawansowane ustawienia, takie jak zgranie oprogramowanie.",
   "unstableVersions": "Pokaż wstępne wydania oprogramowania",
-  "unstableVersionsHint": "Pokaż niestabilne wersje oprogramowania i wstępne wydania"
+  "unstableVersionsHint": "Pokaż niestabilne wersje oprogramowania i wstępne wydania",
+  "skipCache": "Pomiń bufor",
+  "skipCacheHint": "Włącz to ustawienie, jeśli nie widzisz najnowszej wersji w wyborze oprogramowania sprzętowego."
 }

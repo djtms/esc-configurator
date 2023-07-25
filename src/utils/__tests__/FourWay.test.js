@@ -76,7 +76,7 @@ describe('FourWay', () => {
   });
 
   it('should page erase', async() => {
-    fourWay.pageErase();
+    fourWay.erasePage();
     expect(serial).toHaveBeenCalled();
   });
 
@@ -109,30 +109,6 @@ describe('FourWay', () => {
 
     fourWay.addLogMessage();
     expect(logCallback).toHaveBeenCalled();
-  });
-
-  it('should be possible to set packet error', async() => {
-    const packetErrorsCallback = jest.fn();
-    fourWay.setPacketErrorsCallback(packetErrorsCallback);
-
-    fourWay.increasePacketErrors(1);
-    expect(packetErrorsCallback).toHaveBeenCalled();
-  });
-
-  it('should convert command to string', async() => {
-    const string = fourWay.commandToString(0xDEADBEEF);
-    expect(string).toBeNull();
-  });
-
-  it('should convert ack to string', async() => {
-    const string = fourWay.ackToString(0x00);
-    expect(string).toEqual('ACK_OK');
-  });
-
-  it('should handle invalid ack', async() => {
-    const fourWay = new FourWay(serial);
-    const string = fourWay.ackToString(0xDEADBEEF);
-    expect(string).toBeNull();
   });
 
   it('should parse message without params', () => {
@@ -203,7 +179,6 @@ describe('FourWay', () => {
     });
 
     fourWay = new FourWay(serial);
-    fourWay.setExtendedDebug(true);
     await expect(fourWay.testAlive()).resolves.toMatchObject(serial());
   });
 });

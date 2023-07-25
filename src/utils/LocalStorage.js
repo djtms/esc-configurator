@@ -1,5 +1,4 @@
 import { serial as serialPolyfill } from 'web-serial-polyfill';
-import i18next from 'i18next';
 
 import settings from '../settings.json';
 
@@ -9,10 +8,18 @@ const {
   defaultLanguage,
 } = settings;
 
+const MAX_LOG_LENGTH = 10000;
+
+/**
+ * Returns a previously stored language, an auto detected language or the
+ * default language as a last fallback.
+ *
+ * @returns {string}
+ */
 function loadLanguage() {
   let storedLanguage = localStorage.getItem('language');
   if(!storedLanguage) {
-    const browserLanguage = (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage;
+    const browserLanguage = (navigator.languages && navigator.languages[0]) || navigator.language;
     if(browserLanguage) {
       for(let [, value] of Object.entries(availableLanguages)) {
         if(value.value === browserLanguage) {
@@ -33,29 +40,40 @@ function loadLanguage() {
     }
   }
 
-  if(storedLanguage) {
-    i18next.changeLanguage(storedLanguage);
-  }
-
   return(storedLanguage || defaultLanguage);
 }
 
+/**
+ * Returns the log. If the log is longer than a set amount of lines, a truncated
+ * version of the log is returned.
+ *
+ * @returns {Array<string>}
+ */
 function loadLog() {
-  // Load previously stored log messages and sanitize to a max line count
   const storedLog = JSON.parse(localStorage.getItem('log'));
   if(storedLog) {
-    return storedLog.slice(-10000);
+    return storedLog.slice(-MAX_LOG_LENGTH);
   }
 
   return [];
 }
 
+/**
+ * Clears the log
+ *
+ * @returns {Array<string>}
+ */
 function clearLog() {
   localStorage.setItem('log', JSON.stringify([]));
 
   return [];
 }
 
+/**
+ * Returns an array of previously stored melodies
+ *
+ * @returns {Array<object>}
+ */
 function loadMelodies() {
   const storedMelodies = JSON.parse(localStorage.getItem('melodies'));
   if(storedMelodies) {
@@ -65,6 +83,11 @@ function loadMelodies() {
   return [];
 }
 
+/**
+ * Returns a settings object overwriting the defaults with user saved settings
+ *
+ * @returns {object}
+ */
 function loadSettings() {
   const settings = JSON.parse(localStorage.getItem('settings')) || {};
   return {
@@ -73,6 +96,11 @@ function loadSettings() {
   };
 }
 
+/**
+ * Checks browser and returns preferred serial API.
+ *
+ * @returns {Serial}
+ */
 function loadSerialApi() {
   if('serial' in navigator) {
     return navigator.serial;

@@ -1,7 +1,10 @@
 {
-  "version": "v0.24.0",
   "corsProxy": "https://cors.bubblesort.me/?",
   "availableLanguages": [
+    {
+      "label": "Čeština",
+      "value": "cs"
+    },
     {
       "label": "Deutsch",
       "value": "de"
@@ -13,6 +16,10 @@
     {
       "label": "Español",
       "value": "es"
+    },
+    {
+      "label": "Italiano",
+      "value": "it"
     },
     {
       "label": "Polski",
@@ -50,6 +57,10 @@
       "value": false
     },
     "unstableVersions": {
+      "type": "boolean",
+      "value": false
+    },
+    "skipCache": {
       "type": "boolean",
       "value": false
     }

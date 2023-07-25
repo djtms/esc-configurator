@@ -3,14 +3,8 @@ const BOOT_LOADER_PINS = {
   PB4: 0x14,
 };
 
-const RESET_DELAY_MS = 1000;
-
-const PAGE_SIZE = 0x0400;
-const EEPROM_OFFSET = 0x7c00;
+const RESET_DELAY_MS = 5000;
 const LAYOUT_SIZE = 0xB0;
-
-const FLASH_VERSION_OFFSET = 0x10C0;
-const FLASH_VERSION_SIZE = 14;
 
 const BOOT_LOADER_VERSION_OFFSET = 0x00C0;
 const BOOT_LOADER_VERSION_SIZE = 1;
@@ -140,6 +134,26 @@ const LAYOUT = {
     offset: 0x29,
     size: 1,
   },
+  RUNNING_BRAKE_LEVEL: {
+    offset: 0x2A,
+    size: 1,
+  },
+  TEMPERATURE_LIMIT: {
+    offset: 0x2B,
+    size: 1,
+  },
+  CURRENT_LIMIT: {
+    offset: 0x2C,
+    size: 1,
+  },
+  SINE_MODE_POWER: {
+    offset: 0x2D,
+    size: 1,
+  },
+  ESC_PROTOCOL: {
+    offset: 0x2E,
+    size: 1,
+  },
   STARTUP_MELODY: {
     offset: 0x30,
     size: 128,
@@ -147,14 +161,10 @@ const LAYOUT = {
 };
 
 const EEPROM = {
-  EEPROM_OFFSET,
   LAYOUT,
   LAYOUT_SIZE,
   NAMES: [''],
-  PAGE_SIZE,
   RESET_DELAY: RESET_DELAY_MS,
-  VERSION_OFFSET: FLASH_VERSION_OFFSET,
-  VERSION_SIZE: FLASH_VERSION_SIZE,
   BOOT_LOADER_OFFSET: BOOT_LOADER_VERSION_OFFSET,
   BOOT_LOADER_SIZE: BOOT_LOADER_VERSION_SIZE,
   BOOT_LOADER_PINS,

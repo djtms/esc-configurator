@@ -5,6 +5,12 @@ const { corsProxy } = Settings;
 const ONE_DAY = 24 * 60 * 60 * 1000;
 const ONE_YEAR = ONE_DAY * 365;
 
+/**
+ * Fetch URL via CORS proxy
+ *
+ * @param {string} url
+ * @returns {Promise}
+ */
 async function fetchProxy(url) {
   return fetch(`${corsProxy}${url}`);
 }
@@ -16,6 +22,9 @@ async function fetchProxy(url) {
  *
  * We can not fetch everything via CORS proxy by default because we might then
  * get rate limited.
+ *
+ * @param {string} url
+ * @returns {Response}
  */
 async function fetchResponse(url) {
   let response = await fetch(url);
@@ -30,11 +39,20 @@ async function fetchResponse(url) {
   return response;
 }
 
+/**
+ * Fetch JSON from URL and cache on success
+ *
+ * @param {Cache} cache
+ * @param {string} url
+ * @returns {Response}
+ */
 async function fetchAndCacheJsonResponse(cache, url) {
   const response = await fetchResponse(url);
 
-  // If the response does not contain JSON, the next statement will throw and
-  // not be cached
+  /**
+   * If the response does not contain JSON, the next statement will throw and
+   * not be cached
+   */
   await response.clone().json();
 
   const clonedResponse = cloneResponse(response);
@@ -43,6 +61,12 @@ async function fetchAndCacheJsonResponse(cache, url) {
   return response;
 }
 
+/**
+ * Clone a response
+ *
+ * @param {Response} response
+ * @returns {Response}
+ */
 function cloneResponse(response) {
   const clonedResponse = response.clone();
 
@@ -53,26 +77,57 @@ function cloneResponse(response) {
   return newResponse;
 }
 
+/**
+ * Fetch a hex file and cache on success
+ *
+ * @param {Cache} cache
+ * @param {string} url
+ * @returns {Response}
+ */
 async function fetchAndCacheHexResponse(cache, url) {
   const response = await fetchProxy(url);
+
+  if(!response.ok) {
+    throw new Error(response.statusText);
+  }
+
   const clonedResponse = cloneResponse(response);
   cache.put(url, clonedResponse);
 
   return response;
 }
 
+/**
+ * Check if a response should be re-fetched based on max age
+ *
+ * @param {Response} response
+ * @param {number} maxAge
+ * @returns {boolean}
+ */
 function shouldFetch(response, maxAge) {
   const now = Date.now();
   const timeCached = parseInt(response.headers.get('Time-Cached'), 10);
   return (now - timeCached) > maxAge;
 }
 
-// Fetch content from cache or online if necessary
-async function fetchJsonCached(url, maxAge = ONE_DAY) {
+/**
+ * Returns JSON and caches it if necessary
+ *
+ * If no cached version is available yet, a response is fetched and cached for
+ * the future.
+ *
+ * If a cached version is available it will be returned and a new one will be
+ * fetched in case the currently served one is already older than max age.
+ *
+ * @param {string} url
+ * @param {number} maxAge
+ * @returns {object}
+ */
+async function fetchJsonCached(url, skip = false, maxAge = ONE_DAY) {
   const cache = await window.caches.open('v1');
   let cachedResponse = await cache.match(url);
 
-  if (!cachedResponse || !cachedResponse.ok) {
+  if (!cachedResponse || !cachedResponse.ok || skip) {
     // Fetch response and cache it
     cachedResponse = await fetchAndCacheJsonResponse(cache, url);
   } else if (shouldFetch(cachedResponse, maxAge)) {
@@ -84,7 +139,20 @@ async function fetchJsonCached(url, maxAge = ONE_DAY) {
   return cachedResponse.json();
 }
 
-// Fetch HEX files from cache or online if necessary
+/**
+ * Returns Hex and caches it if necessary - Hex files do not change after
+ * initial build, so they can be cached for a long time without side-effects.
+ *
+ * If no cached version is available yet, a response is fetched and cached for
+ * the future.
+ *
+ * If a cached version is available it will be returned and a new one will be
+ * fetched in case the currently served one is already older than max age.
+ *
+ * @param {string} url
+ * @param {number} maxAge
+ * @returns {object}
+ */
 async function fetchHexCached(url, maxAge = ONE_YEAR) {
   const cache = await window.caches.open('hex');
   let cachedResponse = await cache.match(url);
@@ -102,6 +170,8 @@ async function fetchHexCached(url, maxAge = ONE_YEAR) {
 }
 
 export {
+  fetchAndCacheHexResponse,
   fetchJsonCached,
   fetchHexCached,
+  fetchResponse,
 };

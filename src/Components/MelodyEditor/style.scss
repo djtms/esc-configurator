@@ -4,7 +4,7 @@
       max-width: 960px;
       width: 80%;
 
-      @media screen and (max-width: 600px) {
+      @media screen and (width <= 600px) {
         width: 90%;
       }
     }
@@ -14,10 +14,6 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-
-    .info-wrapper-wrapper {
-      white-space: nowrap;
-    }
 
     select {
       margin-left: 10px;
@@ -45,11 +41,11 @@
       }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (width <= 768px) {
       flex-direction: column;
 
       select {
-        margin-left: 0px;
+        margin-left: 0;
       }
 
       .melody-selection-wrapper {
@@ -77,7 +73,7 @@
       button {
         width: 100px;
 
-        @media screen and (max-width: 768px) {
+        @media screen and (width <= 768px) {
           width: inherit;
         }
       }
@@ -113,7 +109,7 @@
     }
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (width <= 600px) {
     .melody-editor-escs.single {
       .esc-melody {
         margin-top: 5px;
@@ -121,8 +117,8 @@
 
         header {
           flex-direction: column;
-          border: 0px;
-          padding-bottom: 0px;
+          border: 0;
+          padding-bottom: 0;
           margin-bottom: 4px;
 
           .default-btn {

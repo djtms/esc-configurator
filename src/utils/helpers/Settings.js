@@ -1,7 +1,11 @@
-import { blheliSource } from '../../sources';
+import { getSource } from './General';
 
-const blheliEeprom = blheliSource.getEeprom();
-
+/**
+ * Get master settings from a set of settings
+ *
+ * @param {Array<object>} escs
+ * @returns {object}
+ */
 const getMasterSettings = (escs) => {
   const master = getMaster(escs);
   if(master) {
@@ -13,44 +17,72 @@ const getMasterSettings = (escs) => {
 
 /**
  * Return the individaul settings for each ESC - include fixed fields
+ *
+ * @param {object} esc
+ * @returns {Array<string>}
  */
 const getIndividualSettingsDescriptions = (esc) => {
-  if(esc && esc.individualSettingsDescriptions) {
-    const descriptions = esc.individualSettingsDescriptions;
-    const individualGroups = Object.keys(descriptions);
-    const keep = ['MAIN_REVISION', 'SUB_REVISION', 'LAYOUT', 'LAYOUT_REVISION', 'NAME'];
-    for(let i = 0; i < individualGroups.length; i += 1) {
-      const keepSettings = descriptions[individualGroups[i]];
-      for(let j = 0; j < keepSettings.length; j += 1) {
-        const current = keepSettings[j].name;
-        keep.push(current);
-      }
-    }
+  if(esc && esc.firmwareName && esc.layoutRevision) {
+    const source = getSource(esc.firmwareName);
+    if(source) {
+      const keep = ['MAIN_REVISION', 'SUB_REVISION', 'LAYOUT', 'LAYOUT_REVISION', 'NAME'];
+      const descriptions = source.getIndividualSettings(esc.layoutRevision);
 
-    return keep;
+      const individualGroups = Object.keys(descriptions);
+      for(let i = 0; i < individualGroups.length; i += 1) {
+        const keepSettings = descriptions[individualGroups[i]];
+        for(let j = 0; j < keepSettings.length; j += 1) {
+          const current = keepSettings[j].name;
+          keep.push(current);
+        }
+      }
+
+      return keep;
+    }
   }
 
   return [];
 };
 
+/**
+ * Return individual settings for a  given ESC
+ *
+ * @param {object} esc
+ * @returns {object}
+ */
 const getIndividualSettings = (esc) => {
   const individualSettings = {};
-  const individualKeep = getIndividualSettingsDescriptions(esc);
 
-  for(let j = 0; j < individualKeep.length; j += 1) {
-    const setting = individualKeep[j];
-    individualSettings[setting] = esc.settings[setting];
+  if(esc && esc.settings) {
+    const individualKeep = getIndividualSettingsDescriptions(esc);
+
+    for(let j = 0; j < individualKeep.length; j += 1) {
+      const setting = individualKeep[j];
+      individualSettings[setting] = esc.settings[setting];
+    }
   }
 
   return individualSettings;
 };
 
+/**
+ * Get master ESC from a list of ESCs
+ *
+ * @param {Array<object>} escs
+ * @returns {object}
+ */
 const getMaster = (escs) => escs.find((esc) => esc.meta.available);
 
-const getAllSettings = (escs) => escs.map((esc) => esc.settings);
-
-const isMulti = (escs) => escs.every((esc) => !esc.settings.MODE || esc.settings.MODE === blheliEeprom.MODES.MULTI);
-
+/**
+ * Check if a specific setting can be migrated from one firmware to another
+ *
+ * @param {string} settingName
+ * @param {object} from
+ * @param {object} to
+ * @param {object} toSettingsDescriptions
+ * @param {object} toIndividualSettingsDescriptions
+ * @returns {boolean}
+ */
 function canMigrate(settingName, from, to, toSettingsDescriptions, toIndividualSettingsDescriptions) {
   if (from.MODE === to.MODE) {
     if (!toSettingsDescriptions[from.LAYOUT_REVISION] ||
@@ -90,11 +122,9 @@ function canMigrate(settingName, from, to, toSettingsDescriptions, toIndividualS
 }
 
 export {
-  getAllSettings,
   getIndividualSettings,
   getIndividualSettingsDescriptions,
   getMaster,
   getMasterSettings,
-  isMulti,
   canMigrate,
 };
