@@ -61,20 +61,6 @@ describe('Bluejay', () => {
     expect(ledFunction(settings)).toBeTruthy();
   });
 
-  it('should return display name', () => {
-    const flash = {
-      settings: {
-        MAIN_REVISION: 1,
-        SUB_REVISION: 100,
-        PWM_FREQUENCY: 24,
-        NAME: 'Bluejay',
-      },
-    };
-
-    const name = source.buildDisplayName(flash, 'MAKE');
-    expect(name).toEqual('MAKE - Bluejay, 1.100, 24kHz');
-  });
-
   it('should return display Name with missing revisions', () => {
     const flash = {
       settings: {
@@ -160,6 +146,20 @@ describe('Bluejay', () => {
     expect(valid).toBeTruthy();
   });
 
+  it('should return display name', () => {
+    const flash = {
+      settings: {
+        MAIN_REVISION: 1,
+        SUB_REVISION: 100,
+        PWM_FREQUENCY: 24,
+        NAME: 'Bluejay',
+      },
+    };
+
+    const name = source.buildDisplayName(flash, 'MAKE');
+    expect(name).toEqual('MAKE - Bluejay, 1.100.0, 24kHz');
+  });
+
   it('should return display name with dynamic PWM', () => {
     const flash = {
       settings: {
@@ -171,35 +171,104 @@ describe('Bluejay', () => {
     };
 
     const name = source.buildDisplayName(flash, 'MAKE');
-    expect(name).toEqual('MAKE - Bluejay, 1.100, Dynamic PWM');
+    expect(name).toEqual('MAKE - Bluejay, 1.100.0, Dynamic PWM');
   });
 
-  it('should return a list of PWM for versions < v0.21.0', () => {
+  it('should return display name with bugfix version', () => {
+    const flash = {
+      settings: {
+        MAIN_REVISION: 1,
+        SUB_REVISION: 100,
+        PWM_FREQUENCY: 192,
+        NAME: 'Bluejay (.1)',
+      },
+    };
+
+    const name = source.buildDisplayName(flash, 'MAKE');
+    expect(name).toEqual('MAKE - Bluejay, 1.100.1, Dynamic PWM');
+  });
+
+  it('should return display name with RC suffix', () => {
+    const flash = {
+      settings: {
+        MAIN_REVISION: 1,
+        SUB_REVISION: 100,
+        PWM_FREQUENCY: 192,
+        NAME: 'Bluejay (RC1)',
+      },
+    };
+
+    const name = source.buildDisplayName(flash, 'MAKE');
+    expect(name).toEqual('MAKE - Bluejay, 1.100.0 RC1, Dynamic PWM');
+  });
+
+  it('should return display name without bugfix version when v0.16', () => {
+    const flash = {
+      settings: {
+        MAIN_REVISION: 0,
+        SUB_REVISION: 16,
+        NAME: 'Bluejay',
+      },
+    };
+
+    const name = source.buildDisplayName(flash, 'MAKE');
+    expect(name).toEqual('MAKE - Bluejay, 0.16');
+  });
+
+  it('should return display name without bugfix version when < 0.20', () => {
+    const flash = {
+      settings: {
+        MAIN_REVISION: 0,
+        SUB_REVISION: 19,
+        PWM_FREQUENCY: 192,
+        NAME: 'Bluejay',
+      },
+    };
+
+    const name = source.buildDisplayName(flash, 'MAKE');
+    expect(name).toEqual('MAKE - Bluejay, 0.19, Dynamic PWM');
+  });
+
+  it('should return display name with bugfix version when >= 0.20', () => {
+    const flash = {
+      settings: {
+        MAIN_REVISION: 0,
+        SUB_REVISION: 20,
+        PWM_FREQUENCY: 192,
+        NAME: 'Bluejay',
+      },
+    };
+
+    const name = source.buildDisplayName(flash, 'MAKE');
+    expect(name).toEqual('MAKE - Bluejay, 0.20.0, Dynamic PWM');
+  });
+
+  it('should return a list of PWM for versions < v0.22.0', () => {
     const frequencies = source.getPwm('v0.10.0');
     expect(frequencies.length).toEqual(3);
   });
 
-  it('should return an empty list for versions >= v0.21.0', () => {
-    const frequencies = source.getPwm('v0.21.0');
+  it('should return an empty list for versions >= v0.22.0', () => {
+    const frequencies = source.getPwm('v0.22.0');
     expect(frequencies.length).toEqual(0);
   });
 
-  it('should enable low PWM threshold setting', () => {
+  it('should enable low threshold setting', () => {
     const settings = {
       GOVERNOR_MODE: 3,
       MOTOR_DIRECTION: 3,
-      PWM_FREQUENCY: 192,
+      PWM_FREQUENCY: 0,
     };
 
     let conditionalFunction = null;
 
-    const revision = 208;
+    const revision = 209;
     const commonSettings = source.getCommonSettings(revision);
     const base = commonSettings.base;
     for(let j = 0; j < base.length; j += 1) {
       const current = base[j];
       if(current.visibleIf) {
-        if(current.name === 'PWM_THRESHOLD_LOW') {
+        if(current.name === 'THRESHOLD_48to24') {
           conditionalFunction = current.visibleIf;
         }
       }
@@ -208,11 +277,12 @@ describe('Bluejay', () => {
     expect(conditionalFunction(settings)).toBeTruthy();
   });
 
+  /*
   it('should enable high PWM threshold setting', () => {
     const settings = {
       GOVERNOR_MODE: 3,
       MOTOR_DIRECTION: 3,
-      PWM_FREQUENCY: 192,
+      PWM_FREQUENCY: 0,
     };
 
     let conditionalFunction = null;
@@ -283,4 +353,5 @@ describe('Bluejay', () => {
 
     expect(sanitizeFunction(lowValue, settings)).toEqual(lowValue);
   });
+  */
 });

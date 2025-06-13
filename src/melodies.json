@@ -126,6 +126,15 @@
     ]
   },
   {
+    "name": "Deco*27 - Vampire",
+    "tracks": [
+      "bluejay:b=163,o=5,d=8:a5,g5,f5,g5,p,4f5,f6,p,a5,16a5,g5,16p,f5,p,f6,p,1p,1p,1p,1p,1p,1p",
+      "bluejay:b=163,o=5,d=8:1p,1p,1p,1p,4p,a5,d6,e6,4f6,a5,g5,p,f6,p,g6,16g6,32g6,32p,g6,f6,g6,4a6,1p,2p,p",
+      "bluejay:b=163,o=5,d=8:1p,1p,a5,g5,16g5,16f5,p,g5,p,f5,g5,32f5,32p,16f5,a5,16p,16g5,p,d6,16d6,32d6,32p,d6,c#6,d6,e6,1p,1p,1p,2p,4p",
+      "bluejay:b=163,o=5,d=8:1p,1p,1p,1p,1p,1p,4p,p,g6,16f6,32f6,32p,f6,p,4a6,g6,f6,g6,2f6"
+    ]
+  },
+  {
     "name": "Devil's Swing",
     "tracks": [
       "Melody:b=125,o=5,d=16:a#6,p,f#6,p,32f#6,32p,32f#6,32p,f#6,d#6,f#6,g6,p,g#6,8p,f#6,d#6,g#6,p,f#6,p,f#6,p,f#6,d#6,32f#6,32p,f#6,p,f#6,8p,f#6,d#6,f#6,p,f#6,p,32f#6,32p,32f#6,32p,f#6,d#6,f#6,g#6,p,a6,8p,a6,p,a6,p,a6,p,a6,p,g#6,p,a6,g#6,p,f#6"
@@ -208,9 +217,27 @@
     ]
   },
   {
+    "name": "Future - Mask off",
+    "tracks": [
+      "mask_off:d=4,o=5,b=200:2e,8g,8b,8g,1a,8b,8a,8g,4f#,4e,8d,8b4,1e",
+      "mask_off:d=4,o=5,b=200:1e2,8p,1a2,8p,1d2,32p,1e2",
+      "mask_off:d=4,o=5,b=200:1e3,8p,1a3,8p,1d3,32p,1e3",
+      "mask_off:d=4,o=5,b=200:2e6,8g6,8b6,8g6,1a6,8b6,8a6,8g6,4f#6,4e6,8d6,8b,1e6"
+    ]
+  },
+  {
+    "name": "Genshin Impact - Fontaine",
+    "tracks": [
+      "Melody:b=100,o=5,d=8:4d#6,d#6,4c#6,b,4a#,4a#,d#,f,f#,g#,a#,g#,f#,d#,4f#,f#,4f,f,p,4d#6,4c#6,b,4a#,4a#,d#,f,f#,g#,a#,g#,f#,f,d#",
+      "Melody:b=100,o=4,d=8:d#,16d#5,16p,d#5,c#,16c#5,16p,c#5,d#,16d#5,16p,d#5,d#,16d#5,16p,d#5,b,16b5,16p,b5,b,16b5,16p,b5,g#,16g#5,16p,g#5,a#,16a#5,16p,a#5,p,d#,16p,16d#,c#,16c#5,16p,c#5,d#,16d#5,16p,d#5,d#,16d#5,16p,d#5,b,16b5,16p,b5,c#,16c#5,16p,c#5,d#5",
+      "Melody:b=100,o=4,d=8:p,16a#,16p,a#,p,16g#,16p,g#,p,16a#,16p,a#,p,16a#,16p,a#,p,16f#,16p,f#,p,16f#,16p,f#,p,16d#,16p,d#,p,16f,16p,f,4p,p,4c#5,d5,4d#5,d#5,4a#5,a#5,4g#5,g#5,4c#5,c#5",
+      "Melody:b=100,o=4,d=8:4a#5,a#5,4g#5,f#5,2a#5,f#5,g#5,2f#5,4f#5,4g#5,g#5,4a#5,a#5,p,a#,16p,16a#,p,16g#,16p,g#,p,16a#,16p,a#,p,16a#,16p,a#,p,16f#,16p,f#,p,16g#,16p,g#,a#"
+    ]
+  },
+  {
     "name": "Guns n Roses - Sweet Child O Mine",
     "tracks": [
-      "SweetChi:d=4,o=5,b=125:8f6,8g#,8d#,8c#6,8g#,8f#,8f#6,8g#,8f6,8g#,8d#,8c#6,8g#,8f#,8f#6,8g#,8f6,8g#"
+      "SweetChi:d=4,o=5,b=125:8c#,8c#6,8g#,8f#,8f#6,8g#,8f6,8g#,8c#,8c#6,8g#,8f#,8f#6,8g#,8f6,8g#"
     ]
   },
   {
@@ -244,6 +271,15 @@
     "name": "Initial D - Rage Your Dream",
     "tracks": [
       "Melody:b=120,o=5,d=8:g,a#,c6,g4,c6,d#6,c6,g#4,d#,d#6,d6,a#4,a#5,g5,a#5,g4,g#5,a#5,c6,a#4,d#5,c6c,f5,c4,d#5,f5,g5,a#4,d6,16a#5,32a#5,32p,a#5,d5"
+    ]
+  },
+  {
+    "name": "K-391 - This is Felicitas",
+    "tracks": [
+        "k391:b=126,o=7,d=8:p,9f5,9g5,9f5,9f5,9e5,4f5,4f5,4f5,4e5,4e5,7p,9f5,9g5,9f5,9f5,9e5,4f5,7p,16f5,7p,32a#5,64p,16a#5,64p,32a#5,64p,4g5,4e5",
+        "k391:b=126,o=7,d=8:p,9f5,9g5,9f5,9f5,9e5,4f5,4f5,4f5,4e5,4e5,7p,9f5,9g5,9f5,9f5,9e5,4f5,7p,16f5,7p,32a#5,64p,16a#5,64p,32a#5,64p,4g5,4e5",
+        "k391:b=126,o=7,d=8:p,9d4,9d4,9d4,4a#3,4a#3,4g3,4g3,4c4,4c4,7p,9d4,9d4,9d4,4a#3,4a#3,7p,16g3,7p,32g3,64p,16g3,64p,32g3,64p,4c4,4c4",
+        "k391:b=126,o=7,d=8:p,9f5,9f5,9f5,4f5,4f5,4f5,4f5,4e5,4e5,7p,9f5,9f5,9f5,4f5,4f5,7p,16f5,7p,32a#5,64p,16a#5,64p,32a#5,64p,4e5,4e5"
     ]
   },
   {
@@ -342,12 +378,46 @@
     ]
   },
   {
+    "name": "My little pony - Theme",
+    "tracks": [
+      "MyLittlePony:d=8,o=7,b=126:f#5,a5,f#5,4e5,4a.5,d5,e5,d5,4c#5,4a.4"
+    ]
+  },
+  {
+    "name": "My little pony - Theme (Polyphonic)",
+    "tracks": [
+      "MyLittlePony:d=8,o=7,b=126:f#5,a5,f#5,4e5,4a.5,d5,e5,d5,4c#5,4a.4,4b4,4c#5,4d5,4e5,2d.5",
+      "MyLittlePony:d=8,o=7,b=126:d3,d4,a4,f#4,e3,e4,a4,a3,b3,f#4,b4,f#4,a3,e4,a4,a3,4g3,4a3,4b3,4c#4,2d.4",
+      "MyLittlePony:d=8,o=7,b=126:1p,1p,4d5,4e5,4f#5,4g5,2f#.5",
+      "MyLittlePony:d=8,o=7,b=126:f#6,a6,f#6,4e6,4a.6,d6,e6,d6,4c#6,4a.5,4g5,4a5,4b5,4c#6,2a.5"
+    ]
+  },
+  {
     "name": "Nitro Fun - New Game",
     "tracks": [
       "Melody:b=128,o=5,d=16:f#3,f#4,f#3,a4,g#4,f#3,e4,f#4,f#3,f#4,f#3,a4,g#4,f#3,e4,f#4,a3,f#4,a3,a4,g#4,a3,e4,f#4,a3,f#4,a3,a4,g#4,a3,e4,f#4,1p,1p",
       "Melody:b=128,o=5,d=16:1p,1p,b3,f#4,b3,a4,g#4,b3,e4,f#4,b3,f#4,b3,a4,g#4,b3,e4,f#4,d4,f#4,d4,a4,g#4,d4,e4,f#4,e3,g#4,e3,e,a4,e3,g#4,a4",
       "Melody:b=128,o=5,d=16:p,a4,p,c#,b4,p,g#4,a4,p,a4,p,c#,b4,p,g#4,a4,p,a4,p,c#,b4,p,g#4,a4,p,a4,p,c#,b4,p,g#4,a4,1p,1p",
       "Melody:b=128,o=5,d=16:1p,1p,p,a4,p,c#,b4,p,g#4,a4,p,a4,p,c#,b4,p,g#4,a4,p,a4,p,c#,b4,p,g#4,a4,p,b4,p,g#,c#,p,b4,c#"
+    ]
+  },
+  {
+    "name": "Гімн України (National Anthem of Ukraine)",
+    "tracks": [
+      "UAAnthem:b=150,o=5,d=4:e,8e,8e,8d,8e,8f,g,8f,e,d,c,e,b4,e,a4,a4"
+    ]
+  },
+  {
+    "name": "Ой у лузі червона калина (Ukrainian Patriotic Song)",
+    "tracks": [
+      "Kalyna:b=260,o=5,d=4:f,p,f,p,g#,g#,p,f,g,g#,g,f,2e,2c,2f,f,g,2g#,2g,1f,p,p,p"
+    ]
+  },
+  {
+    "name": "Ой у лузі червона калина (Ukrainian Patriotic Song - Polyphonic)",
+    "tracks": [
+      "kalyna:d=4,o=5,b=260: 4d6,4p, 4d6, 4p, 2f6, 4p, 4d6, 4e6, 4f6, 4e6, 4d6,4c#6, 4p, 4a5,4p, 2d6,4p, 4e6,4f6, 4p, 4e6, 4p, 4d6",
+      "kalyna:d=4,o=5,b=260: 4d4, 4f4,4d4, 4f4,4d4, 4f4,4d4, 4f4, 4e4, 4g4,4e4, 4g4, 4a4,4c#,4a4,4c#, 4d4, 4f4,4d4, 4f4, 4c4, 4e4,4c4, 4e4,4d4, 4f4,4d4, 4f4"
     ]
   },
   {
@@ -366,6 +436,12 @@
       "pacman2:d=16,o=4,b=112:c#,8p,g#,c#,8p,g#,d,8p,a,d,8p,a,c#,8p,g#,c#,8p,32g#.,64p,g#,p,a#,p,c5,p,c#5",
       "pacman3:d=32,o=6,b=112:c#,p,c#7,p,g#,p,f,p,c#7,g#,16p,16f.,p,d,p,d7,p,a,p,f#,p,d7,a,16p,16f#.,p,c#,p,c#7,p,g#,p,f,p,c#7,g#,16p,16f.,p,e,f,f#,p,f#,g,g#,p,g#,a,a#,p,16c#7",
       "pacman4:d=32,o=5,b=112:c#,p,c#6,p,g#,p,f,p,c#6,g#,16p,16f.,p,d,p,d6,p,a,p,f#,p,d6,a,16p,16f#.,p,c#,p,c#6,p,g#,p,f,p,c#6,g#,16p,16f.,p,e,f,f#,p,f#,g,g#,p,g#,a,a#,p,16c#6"
+    ]
+  },
+  {
+    "name": "Peppa Pig - Theme",
+    "tracks": [
+      "PeppaPig:b=300,o=5,d=4:g,p,e,c,d,p,g4,p,g4,b4,d,f,e,p,c,p"
     ]
   },
   {
@@ -402,6 +478,15 @@
       "PkmnOpening2:d=8,o=7,b=198:16a3,16p,16a3,16p,4d4,16a3,16p,16a3,16p,4d#4,16a3,16p,16a3,16p,4f4,16a3,16p,16a3,16p,4g4,1f#4",
       "PkmnOpening3:d=8,o=7,b=198:16d4,16p,16d4,16p,4a4,16d4,16p,16d4,16p,4a4,16d4,16p,16d4,16p,4a#4,16d4,16p,16d4,16p,4a#4,1a4",
       "PkmnOpening4:d=8,o=7,b=198:16d4,16p,16d4,16p,4a4,16d4,16p,16d4,16p,4a#4,16d4,16p,16d4,16p,4c5,16d4,16p,16d4,16p,4c#5,1d5"
+    ]
+  },
+  {
+    "name": "Police Acadademy - Blue Oyster Bar",
+    "tracks": [
+      "for_sofin:b=125,o=5,d=4:8e5,8c6,8b5,8a5,8e5,1c5,p, 8p,8e5,8c6,8b5,8a5,8e5,g5,8p,8f5, 64p,2f5",
+      "for_sofin:b=125,o=5,d=4:2p,8p,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8d4,8e3,8d4,8e3,8d4,8e3,8d4,8e3,8d4",
+      "for_sofin:b=125,o=5,d=4:8e5,8c6,8b5,8a5,8e5,1c5,p, 8p,8e5,8c6,8b5,8a5,8e5,g5,8p,8f5, 64p,2f5",
+      "for_sofin:b=125,o=5,d=4:2p,8p,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8c4,8e3,8d4,8e3,8d4,8e3,8d4,8e3,8d4,8e3,8d4"
     ]
   },
   {
@@ -465,6 +550,15 @@
     "name": "Salt-N-Pepa - Push it!",
     "tracks": [
       "PushIt:d=8,o=5,b=165:a,p,e,a,p,e,p,g,p,e,p,e,b,c6,b,g,a,p,e,a,p,e,p,g,p,e,p,e,b,c6,b,g,a,p,e6,d6,p,c6,p,b,p,g,p,g,b,c6,b,g,a"
+    ]
+  },
+  {
+    "name": "Sea of Thieves - Maiden Voyage",
+    "tracks": [
+      "Melody:b=125,o=5,d=4:d,8p,16d,16e,f#,8e,16e,16d,e,a,p,16g,16f#,8e,d,16f#,8p,16a,b,8a,8p,2e,e",
+      "Melody:b=125,o=4,d=4:p,d,8p,32d,32p,32a3,32p,8d,8p,p,16c#,16p,32a3,32p,32c#,32p,a3,2p,d,p,8e,8p,p,16a3,16p,32a3,32p,32a3,32p,8a3,8p",
+      "Melody:b=125,o=6,d=4:d,8p,16d,16e,f#,8e,16e,16d,e,a,p,16g,16f#,8e,d,16f#,8p,16a,b,8a,8p,2e,e",
+      "Melody:b=125,o=4,d=4:p,a3,8p,32a3,32p,32d,32p,a3,p,16a3,16p,32c#,32p,32a3,32p,c#,p,p,a3,p,8a3,8p,p,16c#,16p,32c#,32p,32c#,32p,8c#,8p"
     ]
   },
   {
@@ -534,6 +628,15 @@
     ]
   },
   {
+    "name": "Star Trek - The Next Generation (Polyphonic)",
+    "tracks": [
+      "Melody:b=160,o=5,d=4:2f,8p,8d,2d#,8c,8g,f.,d.,p,8d#,8f,8g,8d#,f.,d#.,d.,8d,8p,8d,2f.,1p",
+      "Melody:b=160,o=4,d=4:2a#,8a#,8p,2g#,p,a#.,p.,8p,8g#,2p,f.,g.,f.,g.,2a.,1p",
+      "Melody:b=160,o=5,d=4:2f.,2c.,2p.,2d#,p,d.,d#.,d,8p,d,8p,2c.,1p",
+      "Melody:b=160,o=3,d=4:16a#,16p,16a#,16p,16a#,16p,a#.,16g#,16p,16g#,16p,16g#,16p,g#.,16a#,16p,16a#,16p,16a#,16p,8a#,8f,8a#,g#,2p,2a#.,16c4,16p,8c4,a#.,p.,8p,16c4,16p,8c4,f.,2p."
+    ]
+  },
+  {
     "name": "Star Trek - Voyagar",
     "tracks": [
       "StarTrekVoyager:d=4,o=6,b=45:8c.,8f.5,8f.,16e.,16c.,16c.,16d.,16d.,16c.,8c.,8a#5,32f.5,32c.,32f.5,8f.5"
@@ -586,6 +689,12 @@
     "tracks": [
       "ts_hof_m:b=85,o=5,d=1:16a#5,16a5,16a#5,16g5,16a#5,16d5,16a#5,16g5,16a#5,16d#5,16d#6,16g5,16a#5,16d#5,16d#6,16a#5,16d6,16a#5,16d#6,16a#5,16f6,16a#5,16c6,16a5,16f6,16f5,16f6,16a#5,16c6,16f5,16f6,16a5",
       "ts_hof_b:b=85,o=3,d=1:8g,8d4,8g4,4d#,8a#,4d#4,8a#,8f4,8a#4,4f,8c4,4f4"
+    ]
+  },
+  {
+    "name": "T-Motor Default",
+    "tracks": [
+      "tmotor:b=130,o=5,d=8:c,16f,16e,f,e,4c"
     ]
   },
   {
@@ -662,6 +771,12 @@
     ]
   },
   {
+    "name": "Was wollen wir trinken (sieben Tage lang)",
+    "tracks": [
+      "Was_Wollen_Wir_Trinken:o=6,d=4,b=126:16d,16p,8d,16c,16b5,c,a5.,16d,16p,8d,8c,8b5,16d,16p,8d,16c,16b5,4c,a5,8b5,8g5,4a5"
+    ]
+  },
+  {
     "name":"We wish you a merry christmas",
     "tracks":[
       "WE_WISH_YOU:d=2,o=2,b=384:2c#4,16p,2f#4,16p,4f#4,32p,4g#4,32p,4f#4,32p,4f4,32p,2d#4,32p,2d#4,16p,2d#4,16p,2g#4,16p,4g#4,32p,4a#4,32p,4g#4,32p,4f#4,32p,2f4,16p,2c#4,16p,2c#4,16p,2a#4,16p,4a#4,32p,4b4,32p,4a#4,32p,4g#4,32p,2f#4,16p,2d#4,16p,4c#4,32p,4c#4,16p,2d#4,16p,2g#4,16p,2f4,16p,1f#4",
@@ -697,6 +812,15 @@
     "name": "夜よるに駆かける yoru ni kakeru",
     "tracks": [
       "yorunikakeru:b=120,o=5,d=4:16a#4,16c,16d#,16a#,16c6,8a#,8g,32g,8c,8d#,8f,16g,16c,16d#6,16d6,16a#,8g,8a#,32a#,8c6,8a#,8g,8f,8d,16g,8f,8d#,32d#,8c,8b4,8g#,8g,8d,8f,16d#,8a#,16a#,8g#,8g"
+    ]
+  },
+  {
+    "name": "YOASOBI - Biri Biri",
+    "tracks": [
+      "Bass1:b=352,o=4,d=32:2a3,4g3,4a3,4p,4a3,4e3,4g3,4g3,4a3,4p,4a3,4e3,4g3,4b3,4b3,2e3,4e3,1p,1p,1p,4p,2a3",
+      "Bass2:b=352,o=4,d=32:2a3,4e3,1p,1p,1p,4p,2e3,4a3,4a3,4p,4a3,4e3,4g3,4g3,4a3,4p,4a3,4e3,4a3,4b3,4b3,2b3",
+      "Lead1:b=352,o=4,d=32:2c5,4f#5,4a5,4f#5,4a5,2c5,4f#5,4a5,4f#5,4a5,2c5,2d,2e,4f#5,4a5,4f#5,4a5,2c5,4f#5,4a5,4f#5,4a5,2c5,2d5,2b",
+      "Lead2:b=352,o=4,d=32:2e5,4a5,4b5,4a5,4b5,2e5,4a5,4b5,4a5,4b5,2e5,2d5,2e5,4a5,4b5,4a5,4b5,2e5,4a5,4b5,4a5,4b5,2e5,2d6,2b5"
     ]
   },
   {

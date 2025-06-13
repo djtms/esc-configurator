@@ -110,8 +110,16 @@ function HomeColumnCenter() {
   }, [dispatch]);
 
   return(
-    <div className="column third_center text2">
+    <div className="column third_center text2 tab">
       <div className="wrap">
+        <div className="alert">
+          <strong>
+            Attention Bluejay users!
+          </strong>
+
+          <br />
+          If you are still on 0.20.0, please upgrade to version 0.21.0 - there have been issues with stall detection and motor protection which might result in broken ESCs and/or motors.
+        </div>
 
         <h2>
           {t('homeExperimental')}
@@ -143,7 +151,7 @@ function HomeColumnCenter() {
 
             <li>
               <a
-                href="https://github.com/AlkaMotors/AM32-MultiRotor-ESC-firmware"
+                href="https://github.com/am32-firmware/AM32"
                 rel="noreferrer"
                 target="_blank"
               >

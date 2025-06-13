@@ -170,6 +170,14 @@ const LAYOUT = {
     offset: 0x2A,
     size: 1,
   },
+  THRESHOLD_48to24: {
+    offset: 0x2B,
+    size: 1,
+  },
+  THRESHOLD_96to48: {
+    offset: 0x2C,
+    size: 1,
+  },
 
   LAYOUT: {
     offset: 0x40,

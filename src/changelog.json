@@ -1,5 +1,46 @@
 [
   {
+    "title": "0.32.1",
+    "items": [
+      "Bluejay: D & E layout for X MCU",
+      "Enhancement: More melodies"
+    ]
+  },
+  {
+    "title": "0.32.0",
+    "items": [
+      "Bugfix: Add more space to display ESC information",
+      "Translation: Add Russian translations",
+      "Translation: Fixed typo",
+      "Enhancement: More melodies"
+    ]
+  },
+  {
+    "title": "0.31.0",
+    "items": [
+      "Bugfix: Fix running brake range on AM32",
+      "Bugfix: Update correct ESC when only a single ESC is attached (when multiple would be expected)",
+      "Bugfix: Allow recovery via UI if ESC can still be read, but previous flash failed",
+      "Bluejay: Adjust min/max startup power defaults",
+      "Enhancement: Show checklist when chosing new firmware version",
+      "Enhancement: Link to release notes of new versions if available",
+      "Enhancement: More melodies",
+      "Translation: Add Ukrainian and French translations"
+    ]
+  },
+  {
+    "title": "0.30.2",
+    "items": [
+      "Bluejay: Extract bugfix version from Name setting (>=v0.20.0)"
+    ]
+  },
+  {
+    "title": "0.30.1",
+    "items": [
+      "Chore: Add warning to downgrade Bluejay"
+    ]
+  },
+  {
     "title": "0.30.0",
     "items": [
       "Bugfix: Read back settings after writing",
